@@ -1,1 +1,86 @@
 /* Desenvolva sua estilização aqui ... */
+header{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 77px;
+    padding: 10px 0;
+}
+
+.Filtros{
+    margin-top: 65px;
+}
+.Filtros div {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 24px;
+    gap: 10px;
+}
+
+.definirPreco{
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Albuns{
+    margin-top: 108px;
+}
+
+.Albuns > div{
+    margin-top: 60px;
+}
+.Albuns div ul {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.Albuns div ul li{
+    width: 308px;
+    border-radius: var(--radius-1);
+    background-color: var(--color-grey-8);
+    color: var(--color-grey-2);
+}
+
+.Albuns div ul li figure{
+    width: 100%;
+    border-radius: var(--radius-1) var(--radius-1) 0 0;
+}
+
+.Albuns div ul li figure img{
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-1) var(--radius-1) 0 0;
+}
+.Albuns div ul li h3{
+    margin-top: 20px;
+    color: var(--color-grey-1);
+}
+.liConteudo{
+    padding: 20px 16px 27px 16px;
+}
+
+.bandaAno{
+    display: flex;
+    gap: 20px;
+}
+.bandaAno p {
+    color: var(--color-grey-2);
+}
+.precoEbtn{
+    margin-top: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.precoEbtn p {
+    color: var(--color-grey-1);
+}
+
+.precoEbtn button{
+    background-color: var(--color-grey-7);
+}
+
+
+
+
