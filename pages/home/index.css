@@ -5,9 +5,16 @@ header{
     margin-top: 77px;
     padding: 10px 0;
 }
+header h2{
+    color: var(--color-grey-1);
+}
 
 .Filtros{
     margin-top: 65px;
+}
+
+.Filtros h4{
+    color: var(--color-grey-2);
 }
 .Filtros div {
     display: flex;
@@ -21,9 +28,16 @@ header{
     display: flex;
     justify-content: space-between;
 }
+.definirPreco p {
+    color: var(--color-grey-2);
+}
 
 .Albuns{
     margin-top: 108px;
+}
+
+.Albuns h4{
+    color: var(--color-grey-2);
 }
 
 .Albuns > div{
@@ -36,7 +50,7 @@ header{
 }
 
 .Albuns div ul li{
-    width: 308px;
+    width: 331px;
     border-radius: var(--radius-1);
     background-color: var(--color-grey-8);
     color: var(--color-grey-2);

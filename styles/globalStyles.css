@@ -31,6 +31,14 @@
   --container: 45rem;
 }
 
+.dark-mode:root{
+  --color-grey-1: #f8f9fa;
+  --color-grey-2: #adb5bd;
+  --color-grey-7: #2B2F33;
+  --color-grey-8: #212529;
+  --color-grey-9: #15171a;
+}
+
 body {
   font-family: "Inter", sans-serif;
   font-style: normal;
@@ -49,5 +57,5 @@ body {
   background-color: var(--color-grey-8);
   color: var(--color-grey-2);
   padding: 8px 8px;
-  border: var(--radius-1);
+  border-radius: var(--radius-1);
 }
