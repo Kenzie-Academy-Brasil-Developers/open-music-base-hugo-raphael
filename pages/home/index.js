@@ -7,17 +7,48 @@ products
 const lightDarkMode = () => {
     const $html = document.querySelector("html")
     const btnDarkLightMode  = document.querySelector("header button")
-    console.log(btnDarkLightMode)
+    const img = document.querySelector("header button img")
 
     btnDarkLightMode.addEventListener("click", e => {
         e.preventDefault()
         $html.classList.toggle("dark-mode")
+        img.classList.toggle("toggleDarkMode")
+
+        const preferenciaUsuario = localStorage.getItem("dark-mode")
+
+        if(!preferenciaUsuario) {
+            localStorage.setItem("dark-mode", true)
+        }
+
+        if(preferenciaUsuario) {
+            localStorage.removeItem("dark-mode")
+        }
+
+        if(img.classList.contains('toggleDarkMode')) {
+            img.src = "../../assets/img/sun.png"
+            img.alt = "imagemSol"
+        } else {
+            img.src = "./assets/img/moon.png"
+        }
     })
 }
-lightDarkMode()
+
+const verifiacarDarkmode = () =>  {
+    const html = document.querySelector("html")
+
+    const dmPref = localStorage.getItem("dark-mode")
+
+    if(dmPref) {
+        html.classList.add("dark-mode")
+    }
+} 
+
 
 const criandoBtnEstilosdeMusicas = (infos) => {
     const btn = document.createElement("button")
+    if(infos == "Todos"){
+        btn.classList.add("btnSelecionado")
+    }
     btn.classList.add("btn")
     btn.innerText = infos
     return btn
@@ -29,10 +60,9 @@ const renderizandBotoes = (array) => {
         const botoes = criandoBtnEstilosdeMusicas(element)
         divBotoes.appendChild(botoes)
     });
-
 }
 
-const criandoCardAlbum = (infos) => {
+const criandoCardAlbum = (infos, infosFiltro) => {
     const li = document.createElement("li")
     const figure = document.createElement("figure")
     const img = document.createElement("img")
@@ -46,7 +76,7 @@ const criandoCardAlbum = (infos) => {
     const divPrecoEbtn = document.createElement("div")
     divPrecoEbtn.classList.add("precoEbtn")
     const pPreco = document.createElement("p")
-    const btn = document.createElement("btn")
+    const btn = document.createElement("button")
     btn.classList.add("btn")
 
     img.src = infos.img
@@ -66,16 +96,62 @@ const criandoCardAlbum = (infos) => {
     return li
 }
 
-
-
-const renderizarCardAlbum = (array) => {
+const renderizarCardAlbum = (array, filtros) => {
     const minhaUl = document.querySelector(".Albuns ul")
 
     array.forEach(element => {
-        const card = criandoCardAlbum(element)
+        const card = criandoCardAlbum(element, filtros)
         minhaUl.appendChild(card)
     });
 }
 
+const filtrarEstilos = (albuns) => {
+    const botoesFiltrar = document.querySelectorAll(".Filtros div button")
+    const minhaUl = document.querySelector(".Albuns ul")
+    console.log(botoesFiltrar)
+    botoesFiltrar.forEach((botao, index) => {
+        botao.addEventListener("click", e => {
+            console.log(e)
+            const btnClicado = e.target
+            botoesFiltrar.forEach(element => {
+                if(element != btnClicado){
+                    element.classList.remove("btnSelecionado")
+                }
+            });
+            botao.classList.add("btnSelecionado")
+            minhaUl.innerHTML = ""
+            if(botao.innerText == "Todos"){
+                renderizarCardAlbum(products, categories)
+            }
+            albuns.forEach(element => {
+                if(index == element.category){
+                    const meusCard =  criandoCardAlbum(element)
+                    minhaUl.appendChild(meusCard)
+                } 
+            });
+        })
+    });
+}
+
+const filtroSlider = () => {
+    const pValor = document.querySelector(".Pvalor")
+    const slider = document.getElementById("meuInput")
+    console.log(slider)
+    pValor.innerText = slider.value
+    slider.oninput = () => {
+        pValor.insertAdjacentHTML = this.value
+    }
+    slider.addEventListener("mousemove", () => {
+        e.preventDefault()
+        const input  = slider.value
+        const cor  = "linear-gradient(90deg, var(--color-brand-1)" + input + "%, var(--color-white-fixed)" + input + "%)"
+        slider.style.background = cor
+    })
+}
+
+lightDarkMode()
+verifiacarDarkmode()
 renderizandBotoes(categories)
-renderizarCardAlbum(products)
+renderizarCardAlbum(products, categories)
+filtrarEstilos(products)
+filtroSlider()

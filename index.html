@@ -13,12 +13,14 @@
     <main class="container">
       <header>
         <h2>open music</h2>
-        <button>Lua</button>
+        <button>
+            <img id="Icone" src="./assets/img/moon.png" alt="imgLua">        
+        </button>
       </header>
       <section class="Filtros">
         <h4>Gênero Musical</h4>
         <div>
-          <!-- <button class="btn">Todos</button>
+          <!-- <button class="btn btnSelecionado">Todos</button>
           <button class="btn">Pop</button>
           <button class="btn">MPB</button>
           <button class="btn">Forró</button>
@@ -34,8 +36,15 @@
       </section>
       
       <section class="definirPreco">
-        <p>Definir preço</p>
-        <p>Até R$ 240</p>
+        <div class="definirPrecoTextos">
+          <p>Definir preço</p>
+          <p class="Pvalor">Até R$ 240</p>
+        </div>
+        <div class="containerSlider">
+          <div class="slider">
+            <input type="range" min="0" max="100" value="20">
+          </div>
+        </div>
       </section>
 
       <section class="Albuns">
