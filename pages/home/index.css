@@ -60,9 +60,8 @@ button{
     background-color: var(--color-grey-6);
     border-radius: var(--radius-1);
 }
-.slider input::-webkit-progress-bar{
-    height: 10px;
-    border-radius: 25px;
+.slider input::-moz-progress-bar{
+    -webkit-appearance: none;
     background-color: var(--color-brand-1);
 }
 .slider input::-webkit-slider-thumb{

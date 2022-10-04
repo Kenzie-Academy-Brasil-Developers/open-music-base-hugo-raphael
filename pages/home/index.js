@@ -25,10 +25,9 @@ const lightDarkMode = () => {
         }
 
         if(img.classList.contains('toggleDarkMode')) {
-            img.src = "../../assets/img/sun.png"
-            img.alt = "imagemSol"
-        } else {
             img.src = "./assets/img/moon.png"
+        } else {
+            img.src = "../../assets/img/sun.png"
         }
     })
 }
@@ -133,25 +132,19 @@ const filtrarEstilos = (albuns) => {
     });
 }
 
-const filtroSlider = () => {
+const sliderPreco = () => {
+    const slider = document.querySelector(".slider input")
     const pValor = document.querySelector(".Pvalor")
-    const slider = document.getElementById("meuInput")
-    console.log(slider)
-    pValor.innerText = slider.value
-    slider.oninput = () => {
-        pValor.insertAdjacentHTML = this.value
+
+    pValor.innerHTML = slider.value
+    slider.oninput = function () {
+        pValor.innerHTML = this.value
     }
-    slider.addEventListener("mousemove", () => {
-        e.preventDefault()
-        const input  = slider.value
-        const cor  = "linear-gradient(90deg, var(--color-brand-1)" + input + "%, var(--color-white-fixed)" + input + "%)"
-        slider.style.background = cor
-    })
-}
+} 
 
 lightDarkMode()
 verifiacarDarkmode()
 renderizandBotoes(categories)
 renderizarCardAlbum(products, categories)
 filtrarEstilos(products)
-filtroSlider()
+sliderPreco()
