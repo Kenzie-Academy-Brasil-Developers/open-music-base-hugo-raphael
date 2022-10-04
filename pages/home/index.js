@@ -27,6 +27,7 @@ const lightDarkMode = () => {
         if(img.classList.contains('toggleDarkMode')) {
             img.src = "./assets/img/moon.png"
         } else {
+            
             img.src = "../../assets/img/sun.png"
         }
     })
