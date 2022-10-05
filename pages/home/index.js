@@ -148,6 +148,12 @@ const sliderPreco = () => {
             }
         });
     }
+
+    slider.addEventListener("mousemove", () => {
+        const value = slider.value
+        const color = `linear-gradient(90deg, var(--color-brand-1) ${value}%, var(--color-grey-6) ${-value}%)`
+        slider.style.background = color
+    })
 } 
 
 lightDarkMode()

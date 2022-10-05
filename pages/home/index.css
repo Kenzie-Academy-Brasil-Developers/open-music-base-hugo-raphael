@@ -57,17 +57,7 @@ button{
     -webkit-appearance: none;
     height: 100%;
     width: 100%;
-    background-color: var(--color-grey-6);
-    border-radius: var(--radius-1);
-}
-/* .containerSlider .slider input::-webkit-slider-runnable-track {
-    -webkit-appearance: none;
-    color: var(--color-brand-1);
-    height: 10px;
-} */
-.slider input::-moz-progress-bar{
-    -webkit-appearance: none;
-    background-color: var(--color-brand-1);
+    background: linear-gradient(90deg, var(--color-grey-6) 60%, var(--color-grey-6) 100%);
 }
 .slider input::-webkit-slider-thumb{
     -webkit-appearance: none;
