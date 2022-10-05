@@ -60,6 +60,11 @@ button{
     background-color: var(--color-grey-6);
     border-radius: var(--radius-1);
 }
+/* .containerSlider .slider input::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    color: var(--color-brand-1);
+    height: 10px;
+} */
 .slider input::-moz-progress-bar{
     -webkit-appearance: none;
     background-color: var(--color-brand-1);

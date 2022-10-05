@@ -25,10 +25,9 @@ const lightDarkMode = () => {
         }
 
         if(img.classList.contains('toggleDarkMode')) {
-            img.src = "./assets/img/moon.png"
-        } else {
-            
             img.src = "../../assets/img/sun.png"
+        } else {
+            img.src = "./assets/img/moon.png"
         }
     })
 }
@@ -136,10 +135,18 @@ const filtrarEstilos = (albuns) => {
 const sliderPreco = () => {
     const slider = document.querySelector(".slider input")
     const pValor = document.querySelector(".Pvalor")
-
+    const minhaUl = document.querySelector(".Albuns ul")
     pValor.innerHTML = slider.value
+    
     slider.oninput = function () {
+        minhaUl.innerHTML = ""
         pValor.innerHTML = this.value
+        products.forEach(element => {
+            if(parseInt(element.price) < this.value){
+                const card = criandoCardAlbum(element)
+                minhaUl.appendChild(card)
+            }
+        });
     }
 } 
 
@@ -148,4 +155,4 @@ verifiacarDarkmode()
 renderizandBotoes(categories)
 renderizarCardAlbum(products, categories)
 filtrarEstilos(products)
-sliderPreco()
+sliderPreco(products)
