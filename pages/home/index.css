@@ -57,7 +57,7 @@ button{
     -webkit-appearance: none;
     height: 100%;
     width: 100%;
-    background: linear-gradient(90deg, var(--color-grey-6) 60%, var(--color-grey-6) 100%);
+    background: linear-gradient(90deg, var(--color-grey-6) 60%, var(--color-grey-6) 60%);
 }
 .slider input::-webkit-slider-thumb{
     -webkit-appearance: none;
