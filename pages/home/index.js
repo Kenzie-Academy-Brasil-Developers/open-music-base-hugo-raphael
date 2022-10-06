@@ -34,11 +34,13 @@ const lightDarkMode = () => {
 
 const verifiacarDarkmode = () =>  {
     const html = document.querySelector("html")
+    const img = document.querySelector("header button img")
 
     const dmPref = localStorage.getItem("dark-mode")
 
     if(dmPref) {
         html.classList.add("dark-mode")
+        img.classList.add("toggleDarkMode")
     }
 } 
 
@@ -83,7 +85,7 @@ const criandoCardAlbum = (infos, infosFiltro) => {
     pBanda.innerText = infos.band 
     pAno.innerText = infos.year
     h3.innerText = infos.title
-    pPreco.innerText = infos.price
+    pPreco.innerText = `R$ ${infos.price}`.replace(".",",")
     btn.innerText = "Comprar"
 
     figure.appendChild(img)
@@ -142,7 +144,7 @@ const sliderPreco = () => {
         minhaUl.innerHTML = ""
         pValor.innerHTML = this.value
         products.forEach(element => {
-            if(parseInt(element.price) < this.value){
+            if(parseInt(element.price) <= this.value && parseInt(element.price) > 0){
                 const card = criandoCardAlbum(element)
                 minhaUl.appendChild(card)
             }
