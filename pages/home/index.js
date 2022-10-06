@@ -40,6 +40,7 @@ const verifiacarDarkmode = () =>  {
 
     if(dmPref) {
         html.classList.add("dark-mode")
+        img.src = "../../assets/img/sun.png"
         img.classList.add("toggleDarkMode")
     }
 } 
@@ -138,11 +139,11 @@ const sliderPreco = () => {
     const slider = document.querySelector(".slider input")
     const pValor = document.querySelector(".Pvalor")
     const minhaUl = document.querySelector(".Albuns ul")
-    pValor.innerHTML = slider.value
+    pValor.innerHTML = `R$ ${slider.value}`
     
     slider.oninput = function () {
         minhaUl.innerHTML = ""
-        pValor.innerHTML = this.value
+        pValor.innerHTML = `Até R$ ${slider.value}`
         products.forEach(element => {
             if(parseInt(element.price) <= this.value && parseInt(element.price) > 0){
                 const card = criandoCardAlbum(element)
